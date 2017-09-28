@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import './index.css'
 import App from './App'
 import store from './store'
+import api from '@/api'
 
 
 
@@ -19,5 +20,3 @@ function _render () {
 }
 
 _render()
-
-store.subscribe(_render)

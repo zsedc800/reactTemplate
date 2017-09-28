@@ -1,6 +1,13 @@
 {
   "presets": [
-    ["env", {"targets": "> 5%", "modules": false, "useBuiltIns": true}],
+    ["env", {
+      "modules": false,
+      "useBuiltIns": true,
+      "targets": {
+        "browsers": [">1%", "last 2 version", "not ie <= 8"]
+      }
+    }],
+    "stage-2",
     "react"
   ],
   "plugins": ["transform-runtime"],

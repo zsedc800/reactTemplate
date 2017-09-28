@@ -1,5 +1,5 @@
 import React from 'react'
-import Counter from '@/components/Counter'
+import { Counter } from '@/components'
 import { BrowserRouter, Route } from 'react-router-dom'
 class App extends React.Component {
   constructor (props) {

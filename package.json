@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start test/unit/karma.config.js",
-    "dev": "NODE_ENV=development PORT=3000 node build/dev-server.js",
+    "dev": "NODE_ENV=development PORT=3004 node build/dev-server.js",
     "build": "NODE_ENV=production node build/build.js"
   },
   "keywords": [
@@ -23,6 +23,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.1",
     "colors": "^1.1.2",
     "css-loader": "^0.28.4",
@@ -67,7 +68,9 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "node-sass": "^4.5.3",
+    "qs": "^6.5.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.2.2",
