@@ -1,5 +1,6 @@
 import React from 'react'
 import connect from '@/connect'
+import { RouterSubView } from '@/router'
 
 function mapStateToProps ({getState}) {
   return {
@@ -27,6 +28,7 @@ class Counter extends Component {
       <div>
         <span>{value}</span>
         <button onClick={increaseClick}>increase</button>
+        <RouterSubView routes={this.props.routes}/>
       </div>
     )
   }

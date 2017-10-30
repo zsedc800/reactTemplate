@@ -1,6 +1,5 @@
 import React from 'react'
-import { Counter } from '@/components'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { RouterView } from '@/router'
 class App extends React.Component {
   constructor (props) {
     super(props)
@@ -8,9 +7,7 @@ class App extends React.Component {
 
   render () {
     return (
-      <BrowserRouter>
-        <Route path="/" component={Counter}></Route>
-      </BrowserRouter>
+      <RouterView/>
     )
   }
 }
