@@ -1,5 +1,5 @@
 {
-  "name": "react-template",
+  "name": "<%=projectName%>",
   "version": "1.0.0",
   "description": "a react develop template for quick start",
   "main": "index.js",
