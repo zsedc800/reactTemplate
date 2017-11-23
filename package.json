@@ -6,7 +6,8 @@
   "scripts": {
     "test": "karma start test/unit/karma.config.js",
     "dev": "NODE_ENV=development PORT=3004 node build/dev-server.js",
-    "build": "NODE_ENV=production node build/build.js"
+    "build": "NODE_ENV=production node build/build.js",
+    "build-dev": "STATIC_ENV=test node build/build.js"
   },
   "keywords": [
     "react",

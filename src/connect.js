@@ -1,17 +1,28 @@
 import store from '@/store'
 import React, { Component } from 'react'
 var delayTimer = null
-function connect (mapToProps, mapToDispatch) {
+function connect (mapToProps, mapToDispatch=function () {}) {
   var args = Array.prototype.slice.call(arguments, 0)
   return function (WrappedComp) {
     class Connect extends Component {
       constructor (props) {
         super(props)
-        this.state = { allProps: { } }
+        let mapState = mapToProps(store, this.props)
+        let mapDispatch = mapToDispatch(store) || {}
+        this.state = {
+          allProps: {
+            ...mapState,
+            ...mapDispatch
+          }
+        }
+        this._count = 0
+      }
+
+      componentWillMount () {
+        this._isMounted = true
       }
 
       componentDidMount () {
-        this._updateProps()
         store.subscribe(() => {
           if (delayTimer) {
             clearTimeout(delayTimer)
@@ -23,15 +34,22 @@ function connect (mapToProps, mapToDispatch) {
         })
       }
 
+      componentWillUnmount () {
+        this._isMounted = false
+      }
+
       _updateProps () {
         let mapState = mapToProps(store, this.props)
-        let mapDispatch = mapToDispatch(store)
-        this.setState({
-          allProps: {
-            ...mapState,
-            ...mapDispatch
-          }
-        })
+        let mapDispatch = mapToDispatch(store) || {}
+        if (this._isMounted) {
+          console.log('connect', this._isMounted)
+          this.setState({
+            allProps: {
+              ...mapState,
+              ...mapDispatch
+            }
+          })
+        }
       }
 
       render () {

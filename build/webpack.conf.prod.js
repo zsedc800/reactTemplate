@@ -12,7 +12,8 @@ var webpackConfig = merge (webpackBaseConfig, {
   output: {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('js/[name].js'),
-    chunkFilename: utils.assetsPath('js/[id].js')
+    chunkFilename: utils.assetsPath('js/[id].js'),
+    publicPath: config.build.assetsPublicPath
   },
   devtool: 'source-map',
   module: {
