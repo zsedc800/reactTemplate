@@ -6,7 +6,7 @@ var baseWebpackConfig = require('./webpack.conf.base')
 var config = require('../config')
 var utils = require('./utils')
 Object.keys(baseWebpackConfig['entry']).forEach(key => {
-  baseWebpackConfig.entry[key] = ['webpack-hot-middleware/client'].concat(baseWebpackConfig.entry[key])
+  baseWebpackConfig.entry[key] = ['webpack-hot-middleware/client?name=' + key].concat(baseWebpackConfig.entry[key])
 })
 module.exports = merge(baseWebpackConfig, {
   module: {
@@ -17,6 +17,7 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: '"development"'}
     }),
+    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',

@@ -25,7 +25,7 @@ module.exports = {
         test: /\.js[x]?$/,
         loader: 'eslint-loader',
         enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
+        exclude: /node_modules/,
         options: {
           formatter: require('eslint-friendly-formatter')
         }
@@ -33,7 +33,7 @@ module.exports = {
       {
         test: /\.js[x]?$/,
         loader: 'babel-loader',
-        include: [resolve('src')]
+        exclude: /node_modules/
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

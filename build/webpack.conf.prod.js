@@ -48,13 +48,15 @@ var webpackConfig = merge (webpackBaseConfig, {
       // }
       chunksSortMode: 'dependency'
     }),
+    new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: function (module, count) {
         return (
           module.resource &&
           /\.js$/.test(module.resource) &&
-          module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0
+          // module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0
+          /node_modules/.test(module.resource)
         )
       }
     }),
